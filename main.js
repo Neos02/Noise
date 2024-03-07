@@ -5,8 +5,8 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const perlinImageData = ctx.createImageData(canvas.width, canvas.height);
-const iterations = 4;
-const startingFrequency = 128;
+const iterations = 5;
+const startingFrequency = 256;
 
 for (let y = 0; y < canvas.height; y++) {
   for (let x = 0; x < canvas.width; x++) {
@@ -17,7 +17,7 @@ for (let y = 0; y < canvas.height; y++) {
     let value = 0;
 
     for (let j = 0; j < iterations; j++) {
-      value += (perlin(X, Y) + 1) * 0.5 * amplitude;
+      value += (simplex(X, Y) + 1) * 0.5 * amplitude;
 
       X *= 2;
       Y *= 2;
